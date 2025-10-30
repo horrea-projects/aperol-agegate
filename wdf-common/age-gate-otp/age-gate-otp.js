@@ -755,6 +755,12 @@ ageGateOTP.prototype.setCountry = function (
       // Add current market class and data attribute
       $root.addClass("ag-market-" + countryCode);
       $root.attr("data-market", countryCode);
+      console.log(
+        "AgeGate market set:",
+        countryCode,
+        "-> classes:",
+        $root.attr("class")
+      );
     }
   } catch (e) {
     console.log("market class set error", e);
@@ -764,7 +770,7 @@ ageGateOTP.prototype.setCountry = function (
   try {
     const bannerId = "ag-fr-sticky-banner";
     const $existing = jQuery("#" + bannerId);
-    if (countryCode === "fr-fr") {
+    if (countryCode === "fr") {
       if ($existing.length === 0) {
         const bannerHtml =
           '<div id="' +
