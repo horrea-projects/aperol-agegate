@@ -760,6 +760,29 @@ ageGateOTP.prototype.setCountry = function (
     console.log("market class set error", e);
   }
 
+  // Add or remove FR sticky banner depending on market
+  try {
+    const bannerId = "ag-fr-sticky-banner";
+    const $existing = jQuery("#" + bannerId);
+    if (countryCode === "fr-fr") {
+      if ($existing.length === 0) {
+        const bannerHtml =
+          '<div id="' +
+          bannerId +
+          '" class="ag-fr-sticky-banner" role="region" aria-label="Message sanitaire alcool">' +
+          "  <div class=\"ag-fr-sticky-banner__inner\">L'ABUS D'ALCOOL EST DANGEREUX POUR LA SANTÉ, À CONSOMMER AVEC MODÉRATION.</div>" +
+          "</div>";
+        jQuery("body").append(bannerHtml);
+      }
+    } else {
+      if ($existing.length) {
+        $existing.remove();
+      }
+    }
+  } catch (e) {
+    console.log("fr sticky banner error", e);
+  }
+
   if (geolocalization) {
     _this.htmlStructure.find(".geolocation_message").show();
   } else {

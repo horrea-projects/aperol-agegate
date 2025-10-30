@@ -119,7 +119,7 @@
     },
     {
       "country": "France | Français",
-      "code": "fr-fr",
+      "code": "fr",
       "type": "complete",
       "formatDate": "dd/mm/yyyy",
       "translations": {
