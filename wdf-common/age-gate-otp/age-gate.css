@@ -99,6 +99,11 @@
   background-image: url(https://www.aperol.com/app/uploads/2025/02/Age-Gate-3.0.webp) !important;
 }
 
+/* Market-specific override: France */
+#age-gate-otp.ag-market-fr-fr .modalbg {
+  background-image: url(https://cdn.shopify.com/s/files/1/0627/4007/0559/files/Aperol_Age-Gate_BG.webp?v=1761838760) !important;
+}
+
 #age-gate-otp .ag-buttons .sn_btn {
   background-color: #fffae6 !important;
   border-radius: 2px !important;

@@ -743,6 +743,23 @@ ageGateOTP.prototype.setCountry = function (
   _this.setLegalAge(code);
   _this.switchLanguage(translations);
 
+  // Update market state on the root element to enable market-specific styling
+  // Remove any previous market class and set the current one
+  try {
+    let $root = _this.htmlStructure; // expected to be #age-gate-otp
+    if ($root && $root.removeClass && $root.addClass) {
+      // Remove any class matching ag-market-*
+      $root.removeClass(function (idx, cls) {
+        return (cls && cls.match(/\bag-market-[^\s]+/g)) || [];
+      });
+      // Add current market class and data attribute
+      $root.addClass("ag-market-" + countryCode);
+      $root.attr("data-market", countryCode);
+    }
+  } catch (e) {
+    console.log("market class set error", e);
+  }
+
   if (geolocalization) {
     _this.htmlStructure.find(".geolocation_message").show();
   } else {
