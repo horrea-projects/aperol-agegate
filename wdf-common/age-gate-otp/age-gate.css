@@ -100,7 +100,7 @@
 }
 
 /* Market-specific override: France */
-#age-gate-otp[data-market^="fr"] .modalbg {
+#age-gate-otp[data-market="fr"] .modalbg {
   background-image: url(https://cdn.shopify.com/s/files/1/0627/4007/0559/files/Aperol_Age-Gate_BG-_2_-_1.webp?v=1761842214) !important;
 }
 /* FR market sticky banner */
@@ -118,7 +118,8 @@
   margin: 0 auto;
   background: transparent;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 400;
+  font-family: Jost, sans-serif;
   text-align: center;
   padding: 10px 16px;
   font-size: 12px;
@@ -136,7 +137,7 @@
 }
 
 /* Show banner only for FR markets */
-#age-gate-otp[data-market^="fr"] .ag-fr-sticky-banner {
+#age-gate-otp[data-market="fr"] .ag-fr-sticky-banner {
   display: block;
 }
 
