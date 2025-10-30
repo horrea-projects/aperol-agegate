@@ -770,7 +770,11 @@ ageGateOTP.prototype.setCountry = function (
   try {
     const bannerId = "ag-fr-sticky-banner";
     const $existing = jQuery("#" + bannerId);
-    if (countryCode === "fr") {
+    if (
+      countryCode === "fr" ||
+      countryCode === "fr-fr" ||
+      (typeof countryCode === "string" && countryCode.indexOf("fr") === 0)
+    ) {
       if ($existing.length === 0) {
         const bannerHtml =
           '<div id="' +
