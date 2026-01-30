@@ -119,7 +119,7 @@
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background: #eb3300;
+  background: #01033a;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.14);
 }
 .ag-fr-sticky-banner__inner {
@@ -140,7 +140,7 @@
 @media (min-width: 768px) {
   .ag-fr-sticky-banner__inner {
     max-width: 1280px;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
