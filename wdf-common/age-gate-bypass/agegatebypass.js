@@ -15,10 +15,8 @@ function isFromAperolDomain() {
   const referrer = document.referrer;
   const aperolDomains = [
     "aperol.com",
-    "shop.aperol.com",
     "us-shop.aperol.com",
     "www.aperol.com",
-    "www.shop.aperol.com",
     "www.us-shop.aperol.com",
     "themixer.com",
     "www.themixer.com",
@@ -48,18 +46,32 @@ function isFromAperolDomain() {
     }
   }
 
-  // Méthode 2: Vérifier utm_source=themixer dans l'URL
+  // Méthode 2: Vérifier des paramètres UTM autorisés dans l'URL
   console.log("Age Gate Bypass - No referrer found, checking utm_source");
 
   try {
     const urlParams = new URLSearchParams(window.location.search);
     const utmSource = urlParams.get("utm_source");
+    const utmMedium = urlParams.get("utm_medium");
 
     console.log("Age Gate Bypass - UTM Source:", utmSource);
+    console.log("Age Gate Bypass - UTM Medium:", utmMedium);
 
     if (utmSource && utmSource.toLowerCase() === "themixer") {
       console.log(
         "Age Gate Bypass - UTM source is themixer, bypassing age gate"
+      );
+      return true;
+    }
+
+    if (
+      utmSource &&
+      utmMedium &&
+      utmSource.toLowerCase() === "crm" &&
+      utmMedium.toLowerCase() === "emailshopify"
+    ) {
+      console.log(
+        "Age Gate Bypass - UTM source/medium is crm/emailShopify, bypassing age gate"
       );
       return true;
     }
